@@ -4,7 +4,9 @@ package tiadvanced;
 public class TIAdvanced {
 
     public static void main(String[] args) {
-        // TODO code application logic here
+        Sistema system = new Sistema();
+        system.Cadastro("Teste", "1234-5678", "rua teste", "teste@teste", "teste", "ADM", "123456");
+        system.inicia();
     }
     
 }

@@ -69,6 +69,11 @@ public class Interface extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
+        telaPedidos = new javax.swing.JFrame();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList3 = new javax.swing.JList<>();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
@@ -400,19 +405,15 @@ public class Interface extends javax.swing.JFrame {
         telaClienteLayout.setHorizontalGroup(
             telaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(telaClienteLayout.createSequentialGroup()
-                .addGroup(telaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(telaClienteLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(telaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cadastroServico1)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton10)))
-                    .addGroup(telaClienteLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(verificaPedido1)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(10, 10, 10)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(telaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(verificaPedido1)
+                    .addComponent(jButton10)
+                    .addComponent(cadastroServico1)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         telaClienteLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cadastroServico1, jTextField8});
@@ -428,9 +429,44 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(cadastroServico1)
                 .addGap(27, 27, 27)
                 .addComponent(jButton10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(verificaPedido1)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        jList3.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(jList3);
+
+        jButton11.setText("Alterar Orcamento");
+
+        jButton12.setText("Deletar Orcamento");
+
+        javax.swing.GroupLayout telaPedidosLayout = new javax.swing.GroupLayout(telaPedidos.getContentPane());
+        telaPedidos.getContentPane().setLayout(telaPedidosLayout);
+        telaPedidosLayout.setHorizontalGroup(
+            telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(telaPedidosLayout.createSequentialGroup()
+                .addContainerGap(73, Short.MAX_VALUE)
+                .addGroup(telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jButton12)
+                    .addComponent(jButton11)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(107, 107, 107))
+        );
+        telaPedidosLayout.setVerticalGroup(
+            telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(telaPedidosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton12)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -534,14 +570,6 @@ public class Interface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void verificaPedido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificaPedido1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_verificaPedido1ActionPerformed
-
-    private void cadastroServico1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroServico1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cadastroServico1ActionPerformed
-
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
@@ -587,6 +615,18 @@ public class Interface extends javax.swing.JFrame {
         jTextField4.getText();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void cadastroServico1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroServico1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cadastroServico1ActionPerformed
+
+    private void verificaPedido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificaPedido1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verificaPedido1ActionPerformed
+    
+    
+    public void inicio(){
+        telaLogin.setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */
@@ -626,6 +666,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton cadastroServico1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -654,12 +696,14 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
+    private javax.swing.JList<String> jList3;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -675,6 +719,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel telaCliente;
     private javax.swing.JPanel telaFuncionario;
     private javax.swing.JFrame telaLogin;
+    private javax.swing.JFrame telaPedidos;
     private javax.swing.JButton verificaPedido1;
     // End of variables declaration//GEN-END:variables
     private Sistema system;

@@ -10,7 +10,7 @@ public class Servicos {
     
     public Servicos(String nome, boolean ativo){
         nomeServico = nome;
-        ativo = ativo;
+        this.ativo = ativo;
         orcamentos = new ArrayList();
     }
 
@@ -38,20 +38,20 @@ public class Servicos {
         this.orcamentos = orcamentos;
     }
     
-    public boolean buscaOrcamento(String nome){
+    public Orcamento buscaOrcamento(String nome){
         Iterator it = orcamentos.iterator();
         Orcamento busca;
         while(it.hasNext()){
             busca = (Orcamento)it.next();
             if(busca.getNomeFuncionario().equals(nome)){
-                return true;
+                return busca;
             }
         }
-        return false;
+        return null;
     }
     
     public boolean novoOrcamento(String nome, double preco){
-        if(!(buscaOrcamento(nome))){
+        if(buscaOrcamento(nome) == null){
             Orcamento novo = new Orcamento(nome, preco);
             orcamentos.add(novo);
             JOptionPane.showMessageDialog(null,"ORCAMENTO PARA O PRODUTO CADASTRADO COM SUCESSO.","SUCESSO", JOptionPane.INFORMATION_MESSAGE);
@@ -62,4 +62,24 @@ public class Servicos {
             return false;
         }
     }
+    
+    public void alteraOrcamento(String nome, double novoPreco){
+        Orcamento alterar;
+        if(buscaOrcamento(nome) != null){
+            alterar = buscaOrcamento(nome);
+            alterar.setPreco(novoPreco);
+            JOptionPane.showMessageDialog(null,"ORCAMENTO ALTERADO COM SUCESSO.","SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"ERRO AO ALTERAR O ORCAMENTO.","ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void deletaOrcamento(String nome){
+        if(buscaOrcamento(nome) != null){
+            orcamentos.remove(buscaOrcamento(nome));
+            JOptionPane.showMessageDialog(null,"ORCAMENTO DELETADO COM SUCESSO.","SUCESSO", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
 }
