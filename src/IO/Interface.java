@@ -575,15 +575,15 @@ public class Interface extends javax.swing.JFrame {
         if(system.Login(usuarioLogin.getText(), senha)){
             telaLogin.dispose();
             switch(system.getNivelAcesso()){
-                case 0:
-                default:
-                    telaCliente.setVisible(true);
+                case 2:
+                    setVisible(true);                    
                     break;
                 case 1:
                     telaFuncionario.setVisible(true);
                     break;
-                case 2:
-                    setVisible(true);
+                case 0:
+                default:
+                    telaCliente.setVisible(true);
                     break;
             }            
         }
