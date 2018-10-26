@@ -22,7 +22,7 @@ public class Sistema{
     }
     
     public void inicia(){
-        inter.inicio();
+        inter.inicio();        
     }
     
     public boolean Login(String user, String senha){
@@ -39,7 +39,7 @@ public class Sistema{
         return false;
     }
     
-    public boolean Cadastro(String nome, String telefone, String endereco,  String email, String user, String tipo, String senha){
+    public boolean Cadastro(String nome, String endereco, String telefone, String email, String user, String senha, String tipo){
         Pessoas Novo;
         if(Database.containsKey(user)){
             JOptionPane.showMessageDialog(null,"USUARIO JA ESTÁ SENDO UTILIZADO","ERRO", JOptionPane.ERROR_MESSAGE);
@@ -59,21 +59,54 @@ public class Sistema{
                 Novo = new Administrador(nome, endereco, telefone, email, user, senha, tipo);
                 Database.put(user, Novo);
                 break;
+            default:
+                JOptionPane.showMessageDialog(null,"TIPO INEXISTENTE","ERRO", JOptionPane.ERROR_MESSAGE);
+                return false;
          }
          JOptionPane.showMessageDialog(null,"USUARIO CADASTRADO COM SUCESSO.","SUCESSO", JOptionPane.INFORMATION_MESSAGE);
          return true;
         }      
     }
     
-    public int getNivelAcesso(){
-        switch(Database.get(usuarioLogado).getTipo()){
-            case "Cliente":
-            default:
-                return 0;
+    public boolean Cadastro(String nome, String endereco, String telefone, String email, String user, String senha, String tipo,boolean quiet){
+        Pessoas Novo;
+        if(Database.containsKey(user)){
+            if (!quiet){
+                JOptionPane.showMessageDialog(null,"USUARIO JA ESTÁ SENDO UTILIZADO","ERRO", JOptionPane.ERROR_MESSAGE);
+            }            
+            return false;
+        }
+        else{
+         switch(tipo){
             case "Funcionario":
-                return 1;
+                Novo = new Funcionario(nome, endereco, telefone, email, user, senha, tipo);
+                Database.put(user, Novo);
+                break;
+            case "Cliente":
+                Novo = new Clientes(nome, endereco, telefone, email, user, senha, tipo);
+                Database.put(user, Novo);
+                break;
+            case "ADM":
+                Novo = new Administrador(nome, endereco, telefone, email, user, senha, tipo);
+                Database.put(user, Novo);
+                break;
+         }
+         if (!quiet){
+            JOptionPane.showMessageDialog(null,"USUARIO CADASTRADO COM SUCESSO.","SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+         }         
+         return true;
+        }      
+    }
+    
+    public int getNivelAcesso(){
+        switch(Database.get(usuarioLogado).getTipo()){            
+            case "Funcionario":
+                return 1;                
             case "ADM":
                 return 2;
+            case "Cliente":
+            default:
+                return 0;                
         }
     }
     
@@ -131,5 +164,14 @@ public class Sistema{
     public void alterarOrcamento(String nomeServico, double novoPreco){
         buscarServico(nomeServico).alteraOrcamento(usuarioLogado, novoPreco);
     }
+
+    public Map<String, Pessoas> getDatabase() {
+        return Database;
+    }
+
+    public ArrayList<Servicos> getServicos() {
+        return Servicos;
+    }
+   
     
 }

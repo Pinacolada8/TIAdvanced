@@ -68,6 +68,12 @@ public abstract class Pessoas {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    @Override
+    public String toString() {
+        return nome +":"+ endereco +":"+ telefone +":"+ email +":"+ usuario +":"+ senha +":"+ tipo;
+    }
+    
     
     
        
