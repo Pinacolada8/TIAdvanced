@@ -28,6 +28,7 @@ public class FIleIO {
     
     public void save(){
         writeUsers();
+        System.out.println("ARQUIVOS SALVOS");
     }
     
     public void readUsers(){
@@ -69,7 +70,7 @@ public class FIleIO {
         }        
         
         saver.flush();
-        saver.close();    
+        saver.close();          
     }    
     
 }

@@ -22,6 +22,7 @@ public class Sistema{
     }
     
     public void inicia(){
+        inter.setSystem(this);
         inter.inicio();        
     }
     
@@ -99,12 +100,13 @@ public class Sistema{
     }
     
     public int getNivelAcesso(){
+
         switch(Database.get(usuarioLogado).getTipo()){            
-            case "Funcionario":
+            case Funcionario.ID:
                 return 1;                
-            case "ADM":
+            case Administrador.ID:
                 return 2;
-            case "Cliente":
+            case Clientes.ID:
             default:
                 return 0;                
         }
