@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package IO;
+import Pessoas.Clientes;
+import Pessoas.Funcionario;
 import javax.swing.JOptionPane;
 import tiadvanced.*;
 /**
@@ -21,7 +23,7 @@ public class Interface extends javax.swing.JFrame {
         telaCliente.pack();
         telaFuncionario.pack();
         telaPedidos.pack();
-        telaCadastro.pack();
+        telaCadastro.pack();        
     }
 
     /**
@@ -35,21 +37,21 @@ public class Interface extends javax.swing.JFrame {
 
         telaCadastro = new javax.swing.JDialog();
         jLabel19 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        telefoneCadastrar = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jButton13 = new javax.swing.JButton();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        BotaoCadastrar = new javax.swing.JButton();
+        enderecoCadastrar = new javax.swing.JTextField();
+        usuarioCadastrar = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
+        emailCadastrar = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jPasswordField3 = new javax.swing.JPasswordField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        passwordCadastrar = new javax.swing.JPasswordField();
+        tipoCadastrar = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
-        jTextField17 = new javax.swing.JTextField();
+        nomeCadastrar = new javax.swing.JTextField();
         telaLogin = new javax.swing.JDialog();
         usuarioLogin = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -94,31 +96,31 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel19.setText("Nome:");
 
-        jTextField14.setText("Telefone");
-        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+        telefoneCadastrar.setText("Telefone");
+        telefoneCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField14ActionPerformed(evt);
+                telefoneCadastrarActionPerformed(evt);
             }
         });
 
         jLabel20.setText("Endereço:");
 
-        jButton13.setText("Cadastrar");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        BotaoCadastrar.setText("Cadastrar");
+        BotaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                BotaoCadastrarActionPerformed(evt);
             }
         });
 
-        jTextField15.setText("Endereço");
+        enderecoCadastrar.setText("Endereço");
 
-        jTextField2.setText("Usuario");
+        usuarioCadastrar.setText("Usuario");
 
         jLabel21.setText("Telefone:");
 
         jLabel2.setText("User:");
 
-        jTextField16.setText("Email");
+        emailCadastrar.setText("Email");
 
         jLabel22.setText("Password:");
 
@@ -127,13 +129,13 @@ public class Interface extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel24.setText("CADASTRO");
 
-        jPasswordField3.setText("Password");
+        passwordCadastrar.setText("Password");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipoCadastrar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel25.setText("Tipo:");
 
-        jTextField17.setText("Nome");
+        nomeCadastrar.setText("Nome");
 
         javax.swing.GroupLayout telaCadastroLayout = new javax.swing.GroupLayout(telaCadastro.getContentPane());
         telaCadastro.getContentPane().setLayout(telaCadastroLayout);
@@ -160,20 +162,20 @@ public class Interface extends javax.swing.JFrame {
                                     .addComponent(jLabel23))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tipoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usuarioCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(enderecoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(telefoneCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nomeCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passwordCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(telaCadastroLayout.createSequentialGroup()
                         .addGap(131, 131, 131)
-                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BotaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        telaCadastroLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jComboBox2, jPasswordField3, jTextField14, jTextField15, jTextField16, jTextField17, jTextField2});
+        telaCadastroLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {emailCadastrar, enderecoCadastrar, nomeCadastrar, passwordCadastrar, telefoneCadastrar, tipoCadastrar, usuarioCadastrar});
 
         telaCadastroLayout.setVerticalGroup(
             telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,38 +184,44 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telefoneCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enderecoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usuarioCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tipoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel25))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton13)
+                .addComponent(BotaoCadastrar)
                 .addGap(20, 20, 20))
         );
 
-        telaCadastroLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jComboBox2, jPasswordField3, jTextField14, jTextField15, jTextField16, jTextField17, jTextField2});
+        telaCadastroLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {emailCadastrar, enderecoCadastrar, nomeCadastrar, passwordCadastrar, telefoneCadastrar, tipoCadastrar, usuarioCadastrar});
+
+        telaLogin.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                FecharTela(evt);
+            }
+        });
 
         usuarioLogin.setText("Usuario");
 
@@ -284,6 +292,12 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(botaoCadastro))
                 .addContainerGap())
         );
+
+        telaFuncionario.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                FecharTela(evt);
+            }
+        });
 
         jTextField10.setText("Valor do Serviço");
 
@@ -376,6 +390,12 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        telaCliente.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                FecharTela(evt);
+            }
+        });
+
         verificaPedido2.setText("Verificar Pedidos Realizados");
         verificaPedido2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -464,6 +484,11 @@ public class Interface extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("TelaADM"); // NOI18N
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                FecharTela(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("OPERACÕES");
@@ -563,13 +588,17 @@ public class Interface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+    private void telefoneCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefoneCadastrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField14ActionPerformed
+    }//GEN-LAST:event_telefoneCadastrarActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
+    private void BotaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastrarActionPerformed
+        
+        while(!system.Cadastro(nomeCadastrar.getText(), enderecoCadastrar.getText(), telefoneCadastrar.getText(), emailCadastrar.getText(), usuarioCadastrar.getText(), new String(passwordCadastrar.getPassword()),tipoCadastrar.getSelectedItem().toString())){
+        } 
+        telaCadastro.dispose();
+        telaLogin.setVisible(true);
+    }//GEN-LAST:event_BotaoCadastrarActionPerformed
 
     private void botaoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLoginActionPerformed
         
@@ -597,7 +626,11 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoLoginActionPerformed
 
     private void botaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastroActionPerformed
-        // TODO add your handling code here:
+        telaLogin.dispose();
+        tipoCadastrar.removeAllItems();
+        tipoCadastrar.addItem(Funcionario.ID);
+        tipoCadastrar.addItem(Clientes.ID);
+        telaCadastro.setVisible(true);
     }//GEN-LAST:event_botaoCadastroActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -615,6 +648,11 @@ public class Interface extends javax.swing.JFrame {
     private void cadastroServico2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroServico2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastroServico2ActionPerformed
+
+    private void FecharTela(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_FecharTela
+        system.getData().save();
+        System.exit(0);
+    }//GEN-LAST:event_FecharTela
     
     
     public void inicio(){
@@ -627,11 +665,13 @@ public class Interface extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotaoCadastrar;
     private javax.swing.JButton botaoCadastro;
     private javax.swing.JButton botaoLogin;
     private javax.swing.JButton cadastroServico2;
+    private javax.swing.JTextField emailCadastrar;
+    private javax.swing.JTextField enderecoCadastrar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
@@ -640,7 +680,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -661,7 +700,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList4;
     private javax.swing.JList<String> jList5;
-    private javax.swing.JPasswordField jPasswordField3;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -669,20 +707,20 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField nomeCadastrar;
+    private javax.swing.JPasswordField passwordCadastrar;
     private javax.swing.JPasswordField passwordLogin;
     private javax.swing.JDialog telaCadastro;
     private javax.swing.JDialog telaCliente;
     private javax.swing.JDialog telaFuncionario;
     private javax.swing.JDialog telaLogin;
     private javax.swing.JDialog telaPedidos;
+    private javax.swing.JTextField telefoneCadastrar;
+    private javax.swing.JComboBox<String> tipoCadastrar;
+    private javax.swing.JTextField usuarioCadastrar;
     private javax.swing.JTextField usuarioLogin;
     private javax.swing.JButton verificaPedido2;
     // End of variables declaration//GEN-END:variables

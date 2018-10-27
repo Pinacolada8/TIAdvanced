@@ -13,6 +13,7 @@ public class Sistema{
     String usuarioLogado;
     Map <String,Pessoas>  Database;
     ArrayList<Servicos> Servicos;
+    FIleIO  data;
     
     public Sistema(){
         inter = new Interface();
@@ -174,6 +175,14 @@ public class Sistema{
     public ArrayList<Servicos> getServicos() {
         return Servicos;
     }
-   
+
+    public void setData(FIleIO data) {
+        this.data = data;
+    }
+
+    public FIleIO getData() {
+        return data;
+    }
     
+   
 }

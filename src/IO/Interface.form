@@ -33,18 +33,18 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="2" attributes="0">
-                              <Component id="jComboBox2" linkSize="17" alignment="2" min="-2" pref="252" max="-2" attributes="0"/>
-                              <Component id="jTextField2" linkSize="17" alignment="2" min="-2" pref="252" max="-2" attributes="0"/>
-                              <Component id="jTextField16" linkSize="17" alignment="2" min="-2" pref="108" max="-2" attributes="0"/>
-                              <Component id="jTextField15" linkSize="17" alignment="2" min="-2" pref="77" max="-2" attributes="0"/>
-                              <Component id="jTextField14" linkSize="17" alignment="2" min="-2" pref="67" max="-2" attributes="0"/>
-                              <Component id="jTextField17" linkSize="17" alignment="2" min="-2" pref="58" max="-2" attributes="0"/>
-                              <Component id="jPasswordField3" linkSize="17" alignment="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="tipoCadastrar" linkSize="17" alignment="2" min="-2" pref="252" max="-2" attributes="0"/>
+                              <Component id="usuarioCadastrar" linkSize="17" alignment="2" min="-2" pref="252" max="-2" attributes="0"/>
+                              <Component id="emailCadastrar" linkSize="17" alignment="2" min="-2" pref="108" max="-2" attributes="0"/>
+                              <Component id="enderecoCadastrar" linkSize="17" alignment="2" min="-2" pref="77" max="-2" attributes="0"/>
+                              <Component id="telefoneCadastrar" linkSize="17" alignment="2" min="-2" pref="67" max="-2" attributes="0"/>
+                              <Component id="nomeCadastrar" linkSize="17" alignment="2" min="-2" pref="58" max="-2" attributes="0"/>
+                              <Component id="passwordCadastrar" linkSize="17" alignment="2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-                          <Component id="jButton13" min="-2" pref="115" max="-2" attributes="0"/>
+                          <Component id="BotaoCadastrar" min="-2" pref="115" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="31" max="32767" attributes="0"/>
@@ -58,41 +58,41 @@
                   <Component id="jLabel24" min="-2" pref="19" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField17" linkSize="18" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nomeCadastrar" linkSize="18" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel19" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField14" linkSize="18" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="telefoneCadastrar" linkSize="18" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel21" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField15" linkSize="18" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="enderecoCadastrar" linkSize="18" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel20" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField16" linkSize="18" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="emailCadastrar" linkSize="18" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField2" linkSize="18" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="usuarioCadastrar" linkSize="18" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jComboBox2" linkSize="18" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tipoCadastrar" linkSize="18" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jPasswordField3" linkSize="18" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="passwordCadastrar" linkSize="18" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton13" min="-2" max="-2" attributes="0"/>
+                  <Component id="BotaoCadastrar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -104,12 +104,12 @@
             <Property name="text" type="java.lang.String" value="Nome:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField14">
+        <Component class="javax.swing.JTextField" name="telefoneCadastrar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Telefone"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField14ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="telefoneCadastrarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel20">
@@ -117,20 +117,20 @@
             <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton13">
+        <Component class="javax.swing.JButton" name="BotaoCadastrar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton13ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoCadastrarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField15">
+        <Component class="javax.swing.JTextField" name="enderecoCadastrar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="usuarioCadastrar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Usuario"/>
           </Properties>
@@ -145,7 +145,7 @@
             <Property name="text" type="java.lang.String" value="User:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField16">
+        <Component class="javax.swing.JTextField" name="emailCadastrar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Email"/>
           </Properties>
@@ -168,12 +168,12 @@
             <Property name="text" type="java.lang.String" value="CADASTRO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordField3">
+        <Component class="javax.swing.JPasswordField" name="passwordCadastrar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox2">
+        <Component class="javax.swing.JComboBox" name="tipoCadastrar">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -193,7 +193,7 @@
             <Property name="text" type="java.lang.String" value="Tipo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField17">
+        <Component class="javax.swing.JTextField" name="nomeCadastrar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nome"/>
           </Properties>
@@ -201,6 +201,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="telaLogin">
+      <Events>
+        <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="FecharTela"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -307,6 +310,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="telaFuncionario">
+      <Events>
+        <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="FecharTela"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -460,6 +466,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="telaCliente">
+      <Events>
+        <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="FecharTela"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -608,6 +617,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="FecharTela"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
