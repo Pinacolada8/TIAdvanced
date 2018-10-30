@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package IO;
-import Pessoas.Clientes;
-import Pessoas.Funcionario;
+import Pessoas.*;
 import javax.swing.JOptionPane;
 import tiadvanced.*;
 /**
@@ -61,22 +60,25 @@ public class Interface extends javax.swing.JFrame {
         botaoLogin = new javax.swing.JButton();
         botaoCadastro = new javax.swing.JButton();
         telaFuncionario = new javax.swing.JDialog();
-        jTextField10 = new javax.swing.JTextField();
+        valorServico = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jTextField11 = new javax.swing.JTextField();
+        AtribuirValor = new javax.swing.JButton();
+        cadastroServicoFunc = new javax.swing.JButton();
+        verificarPedidosFunc = new javax.swing.JButton();
+        nomeServicoFunc = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jList4 = new javax.swing.JList<>();
+        servicosValidosFunc = new javax.swing.JList<>();
+        verificarPedidosFunc1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         telaCliente = new javax.swing.JDialog();
         verificaPedido2 = new javax.swing.JButton();
         cadastroServico2 = new javax.swing.JButton();
-        jTextField9 = new javax.swing.JTextField();
+        nomeServicoCli = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jButton18 = new javax.swing.JButton();
+        realizarPedido = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         telaPedidos = new javax.swing.JDialog();
         jScrollPane5 = new javax.swing.JScrollPane();
         jList5 = new javax.swing.JList<>();
@@ -86,13 +88,13 @@ public class Interface extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jTextField7 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
+        cadastrarADM = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jButton7 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         jLabel19.setText("Nome:");
 
@@ -299,7 +301,7 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
-        jTextField10.setText("Valor do Serviço");
+        valorServico.setText("Valor do Serviço");
 
         jLabel15.setText("Serviço:");
 
@@ -307,59 +309,66 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel17.setText("R$:");
 
-        jButton3.setText("Cadastrar Serviço");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        AtribuirValor.setText("Atribuir Valor a Serviço");
+
+        cadastroServicoFunc.setText("Cadastrar Serviço");
+        cadastroServicoFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                cadastroServicoFuncActionPerformed(evt);
             }
         });
 
-        jButton16.setText("Atribuir Valor a Serviço");
+        verificarPedidosFunc.setText("Verificar Pedidos");
 
-        jButton17.setText("Verificar Pedidos");
+        nomeServicoFunc.setText("Nome do Serviço");
 
-        jTextField11.setText("Nome do Serviço");
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
-            }
-        });
-
-        jList4.setModel(new javax.swing.AbstractListModel<String>() {
+        servicosValidosFunc.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane4.setViewportView(jList4);
+        jScrollPane4.setViewportView(servicosValidosFunc);
+
+        verificarPedidosFunc1.setText("Verificar Orçamentos");
+
+        jButton2.setText("Deslogar");
 
         javax.swing.GroupLayout telaFuncionarioLayout = new javax.swing.GroupLayout(telaFuncionario.getContentPane());
         telaFuncionario.getContentPane().setLayout(telaFuncionarioLayout);
         telaFuncionarioLayout.setHorizontalGroup(
             telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(telaFuncionarioLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel15)
-                .addGap(9, 9, 9)
-                .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(telaFuncionarioLayout.createSequentialGroup()
-                        .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel15)
+                        .addGap(9, 9, 9)
+                        .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(telaFuncionarioLayout.createSequentialGroup()
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel16))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telaFuncionarioLayout.createSequentialGroup()
-                                .addComponent(jButton3)
-                                .addGap(144, 144, 144)))
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(telaFuncionarioLayout.createSequentialGroup()
+                                        .addComponent(nomeServicoFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel16)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telaFuncionarioLayout.createSequentialGroup()
+                                        .addComponent(cadastroServicoFunc)
+                                        .addGap(144, 144, 144)))
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(telaFuncionarioLayout.createSequentialGroup()
+                                .addComponent(verificarPedidosFunc1)
+                                .addGap(18, 18, 18)
+                                .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(telaFuncionarioLayout.createSequentialGroup()
+                                        .addComponent(jLabel17)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(valorServico, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(AtribuirValor)))))
                     .addGroup(telaFuncionarioLayout.createSequentialGroup()
-                        .addComponent(jButton17)
-                        .addGap(18, 18, 18)
-                        .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(telaFuncionarioLayout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton16))))
+                        .addContainerGap()
+                        .addComponent(jButton2)
+                        .addGap(121, 121, 121)
+                        .addComponent(verificarPedidosFunc)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         telaFuncionarioLayout.setVerticalGroup(
@@ -370,24 +379,25 @@ public class Interface extends javax.swing.JFrame {
                     .addGroup(telaFuncionarioLayout.createSequentialGroup()
                         .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nomeServicoFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel16))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3))
+                        .addComponent(cadastroServicoFunc))
                     .addGroup(telaFuncionarioLayout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(valorServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17))))
-                .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(telaFuncionarioLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton16))
-                    .addGroup(telaFuncionarioLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jButton17)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AtribuirValor)
+                    .addComponent(verificarPedidosFunc1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(verificarPedidosFunc)
+                    .addComponent(jButton2))
+                .addContainerGap())
         );
 
         telaCliente.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -410,41 +420,49 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
-        jTextField9.setText("Nome do Serviço");
+        nomeServicoCli.setText("Nome do Serviço");
 
         jLabel18.setText("Serviço:");
 
-        jButton18.setText("Realizar Pedido");
+        realizarPedido.setText("Realizar Pedido");
+
+        jButton3.setText("Deslogar");
 
         javax.swing.GroupLayout telaClienteLayout = new javax.swing.GroupLayout(telaCliente.getContentPane());
         telaCliente.getContentPane().setLayout(telaClienteLayout);
         telaClienteLayout.setHorizontalGroup(
             telaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(telaClienteLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(telaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(verificaPedido2)
-                    .addComponent(jButton18)
-                    .addComponent(cadastroServico2)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(telaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(telaClienteLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(telaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(cadastroServico2)
+                            .addComponent(realizarPedido)
+                            .addComponent(verificaPedido2)
+                            .addComponent(jButton3)))
+                    .addGroup(telaClienteLayout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addGap(2, 2, 2)
+                        .addComponent(nomeServicoCli, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         telaClienteLayout.setVerticalGroup(
             telaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(telaClienteLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(telaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(telaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomeServicoCli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cadastroServico2)
                 .addGap(27, 27, 27)
-                .addComponent(jButton18)
+                .addComponent(realizarPedido)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(verificaPedido2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addContainerGap())
         );
 
         jList5.setModel(new javax.swing.AbstractListModel<String>() {
@@ -499,9 +517,12 @@ public class Interface extends javax.swing.JFrame {
 
         jButton1.setText("Promover");
 
-        jTextField7.setText("Senha");
-
-        jButton6.setText("Cadastrar");
+        cadastrarADM.setText("Cadastrar novo ADM");
+        cadastrarADM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarADMActionPerformed(evt);
+            }
+        });
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -518,28 +539,26 @@ public class Interface extends javax.swing.JFrame {
 
         jButton7.setText("Aplicar");
 
+        jButton4.setText("Deslogar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(186, 186, 186)
-                .addComponent(jLabel9)
-                .addGap(16, 318, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadastrarADM))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -551,12 +570,16 @@ public class Interface extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addComponent(jButton7)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(186, 186, 186)
+                        .addComponent(jLabel9))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addComponent(jButton4)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField6, jTextField7});
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton6});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -567,12 +590,11 @@ public class Interface extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6)))
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cadastrarADM))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jRadioButton1)
@@ -580,10 +602,12 @@ public class Interface extends javax.swing.JFrame {
                         .addComponent(jRadioButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton7)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton6, jTextField6, jTextField7});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cadastrarADM, jButton1, jTextField6});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -594,10 +618,10 @@ public class Interface extends javax.swing.JFrame {
 
     private void BotaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastrarActionPerformed
         
-        while(!system.Cadastro(nomeCadastrar.getText(), enderecoCadastrar.getText(), telefoneCadastrar.getText(), emailCadastrar.getText(), usuarioCadastrar.getText(), new String(passwordCadastrar.getPassword()),tipoCadastrar.getSelectedItem().toString())){
+        if(system.Cadastro(nomeCadastrar.getText(), enderecoCadastrar.getText(), telefoneCadastrar.getText(), emailCadastrar.getText(), usuarioCadastrar.getText(), new String(passwordCadastrar.getPassword()),tipoCadastrar.getSelectedItem().toString())){
+            telaCadastro.dispose();
         } 
-        telaCadastro.dispose();
-        telaLogin.setVisible(true);
+        
     }//GEN-LAST:event_BotaoCadastrarActionPerformed
 
     private void botaoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLoginActionPerformed
@@ -626,33 +650,40 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoLoginActionPerformed
 
     private void botaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastroActionPerformed
-        telaLogin.dispose();
         tipoCadastrar.removeAllItems();
         tipoCadastrar.addItem(Funcionario.ID);
         tipoCadastrar.addItem(Clientes.ID);
         telaCadastro.setVisible(true);
     }//GEN-LAST:event_botaoCadastroActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    private void cadastroServicoFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroServicoFuncActionPerformed
+        system.cadastrarServico(nomeServicoFunc.getText());
+    }//GEN-LAST:event_cadastroServicoFuncActionPerformed
 
     private void verificaPedido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificaPedido2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_verificaPedido2ActionPerformed
 
     private void cadastroServico2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroServico2ActionPerformed
-        // TODO add your handling code here:
+        system.cadastrarServico(nomeServicoCli.getText());
     }//GEN-LAST:event_cadastroServico2ActionPerformed
 
     private void FecharTela(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_FecharTela
         system.getData().save();
         System.exit(0);
     }//GEN-LAST:event_FecharTela
+
+    private void cadastrarADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarADMActionPerformed
+        tipoCadastrar.removeAllItems();
+        tipoCadastrar.addItem(Funcionario.ID);
+        tipoCadastrar.addItem(Clientes.ID);
+        tipoCadastrar.addItem(Administrador.ID);
+        telaCadastro.setVisible(true);
+    }//GEN-LAST:event_cadastrarADMActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
     
     
     public void inicio(){
@@ -665,20 +696,21 @@ public class Interface extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AtribuirValor;
     private javax.swing.JButton BotaoCadastrar;
     private javax.swing.JButton botaoCadastro;
     private javax.swing.JButton botaoLogin;
+    private javax.swing.JButton cadastrarADM;
     private javax.swing.JButton cadastroServico2;
+    private javax.swing.JButton cadastroServicoFunc;
     private javax.swing.JTextField emailCadastrar;
     private javax.swing.JTextField enderecoCadastrar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
@@ -698,21 +730,20 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList4;
     private javax.swing.JList<String> jList5;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField nomeCadastrar;
+    private javax.swing.JTextField nomeServicoCli;
+    private javax.swing.JTextField nomeServicoFunc;
     private javax.swing.JPasswordField passwordCadastrar;
     private javax.swing.JPasswordField passwordLogin;
+    private javax.swing.JButton realizarPedido;
+    private javax.swing.JList<String> servicosValidosFunc;
     private javax.swing.JDialog telaCadastro;
     private javax.swing.JDialog telaCliente;
     private javax.swing.JDialog telaFuncionario;
@@ -722,7 +753,10 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> tipoCadastrar;
     private javax.swing.JTextField usuarioCadastrar;
     private javax.swing.JTextField usuarioLogin;
+    private javax.swing.JTextField valorServico;
     private javax.swing.JButton verificaPedido2;
+    private javax.swing.JButton verificarPedidosFunc;
+    private javax.swing.JButton verificarPedidosFunc1;
     // End of variables declaration//GEN-END:variables
     private Sistema system;  
 }
