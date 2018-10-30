@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Sistema{
@@ -146,16 +147,39 @@ public class Sistema{
         return null;
     }
     
-    public void modificarServico(String nomeAtual, String novoNome){
-        if(buscarServico(nomeAtual)!= null){
-            buscarServico(nomeAtual).setNomeServico(novoNome);
-        }
+    public void modificarServico(List itens){
+        System.out.println(itens);
+        Iterator it = itens.iterator();
+        String nomeAtual, novoNome;
+        while(it.hasNext()){
+            nomeAtual = (String)it.next();
+            if(buscarServico(nomeAtual)!= null){
+                novoNome = JOptionPane.showInputDialog(null, "Novo nome para " + nomeAtual, "Renomear", JOptionPane.QUESTION_MESSAGE);
+                buscarServico(nomeAtual).setNomeServico(novoNome);
+            }            
+        }                
     }
     
-    public void DeletarServico(String nome){
-        if(buscarServico(nome) != null){
+    public void validarServico(List itens){
+        Iterator it = itens.iterator();
+        String nome;
+        while(it.hasNext()){
+            nome = (String)it.next();
+            if(buscarServico(nome) != null){
+                buscarServico(nome).setAtivo(true);
+            }
+        }        
+    }
+    
+    public void DeletarServico(List itens){
+        Iterator it = itens.iterator();
+        String nome;
+        while(it.hasNext()){
+            nome = (String)it.next();
+            if(buscarServico(nome) != null){
             Servicos.remove(buscarServico(nome));
-        }
+            }
+        }       
     }
     
     public void precificarServico(String nome, double preco){
