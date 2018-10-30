@@ -22,7 +22,7 @@ public class Interface extends javax.swing.JFrame {
         telaCliente.pack();
         telaFuncionario.pack();
         telaOrcamentos.pack();
-        telaCadastro.pack();        
+        telaCadastro.pack();   
     }
 
     /**
