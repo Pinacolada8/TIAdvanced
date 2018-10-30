@@ -41,6 +41,10 @@ public class Sistema{
         return false;
     }
     
+    public void deslogar(){
+        usuarioLogado = "";
+    }
+    
     public boolean Cadastro(String nome, String endereco, String telefone, String email, String user, String senha, String tipo){
         Pessoas Novo;
         if(Database.containsKey(user)){
@@ -166,6 +170,19 @@ public class Sistema{
     
     public void alterarOrcamento(String nomeServico, double novoPreco){
         buscarServico(nomeServico).alteraOrcamento(usuarioLogado, novoPreco);
+    }
+    
+    public ArrayList<String> getServicosValidos(){
+        ArrayList<String> validos = new ArrayList();
+        Iterator it = Servicos.iterator();
+        Servicos busca;
+        while(it.hasNext()){
+            busca = (Servicos)it.next();
+            if(busca.isAtivo()){
+                validos.add(busca.getNomeServico());
+            }
+        }
+        return validos;
     }
 
     public Map<String, Pessoas> getDatabase() {
