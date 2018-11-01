@@ -208,6 +208,51 @@ public class Sistema{
         }
         return validos;
     }
+    
+    public String[] getServicosInvalidos(){
+        Iterator it = Servicos.iterator();
+        Servicos busca;
+        int contador = 0;
+        while(it.hasNext()){
+            busca = (Servicos)it.next();
+            if(!busca.isAtivo()){
+                contador++;
+            }
+        }
+        String[] retorno = new String[contador];
+        it = Servicos.iterator();//Resetando o Iterator
+        contador = 0;
+        while(it.hasNext()){
+           busca = (Servicos)it.next();
+            if(!busca.isAtivo()){
+                retorno[contador] = busca.getNomeServico();
+                contador++;
+            } 
+        }
+        return retorno;
+    }
+    
+    public ArrayList<String> getValidosNaoOrcamentados(){
+        ArrayList<String> naoOrcamentados = new ArrayList();
+        Iterator it = Servicos.iterator();
+        Servicos busca;
+        while(it.hasNext()){
+            busca = (Servicos)it.next();
+            Iterator it2 = busca.getOrcamentos().iterator();
+            boolean orcamentado = false;
+            while(it2.hasNext()){
+                Orcamento procura = (Orcamento)it2.next();
+                if(procura.getNomeFuncionario().equals(usuarioLogado)){
+                    orcamentado = true;
+                }
+            }
+            if(orcamentado == false){
+                naoOrcamentados.add(busca.getNomeServico());
+            }
+            orcamentado = false;
+        }
+        return naoOrcamentados;
+    }
 
     public Map<String, Pessoas> getDatabase() {
         return Database;

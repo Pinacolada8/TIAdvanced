@@ -5,6 +5,7 @@
  */
 package IO;
 import Pessoas.*;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -89,6 +90,7 @@ public class Interface extends javax.swing.JFrame {
         jList5 = new javax.swing.JList<>();
         jButton19 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
+        telaPedidos = new javax.swing.JDialog();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         promocao = new javax.swing.JTextField();
@@ -522,6 +524,17 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout telaPedidosLayout = new javax.swing.GroupLayout(telaPedidos.getContentPane());
+        telaPedidos.getContentPane().setLayout(telaPedidosLayout);
+        telaPedidosLayout.setHorizontalGroup(
+            telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        telaPedidosLayout.setVerticalGroup(
+            telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("TelaADM"); // NOI18N
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -708,9 +721,11 @@ public class Interface extends javax.swing.JFrame {
             telaLogin.dispose();
             switch(system.getNivelAcesso()){
                 case 2:
+                    setjListADM();
                     setVisible(true);                    
                     break;
                 case 1:
+                    setjComboBoxFunc();
                     telaFuncionario.setVisible(true);
                     break;
                 case 0:
@@ -777,6 +792,7 @@ public class Interface extends javax.swing.JFrame {
 
     private void AtribuirValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtribuirValorActionPerformed
         system.precificarServico(servicosValidos.getSelectedItem().toString(), Double.parseDouble(valorServico.getText()));
+        setjComboBoxFunc();
     }//GEN-LAST:event_AtribuirValorActionPerformed
 
     private void nomeServicoCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeServicoCliActionPerformed
@@ -789,18 +805,22 @@ public class Interface extends javax.swing.JFrame {
 
     private void validarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validarActionPerformed
         system.validarServico(jList1.getSelectedValuesList());
+        setjListADM();
     }//GEN-LAST:event_validarActionPerformed
 
     private void cadastroServicoADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroServicoADMActionPerformed
         system.cadastrarServico(nomeServicoADM.getText());
+        setjListADM();
     }//GEN-LAST:event_cadastroServicoADMActionPerformed
 
     private void deletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarActionPerformed
         system.DeletarServico(jList1.getSelectedValuesList());
+        setjListADM();
     }//GEN-LAST:event_deletarActionPerformed
 
     private void alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarActionPerformed
         system.modificarServico(jList1.getSelectedValuesList());
+        setjListADM();
     }//GEN-LAST:event_alterarActionPerformed
     
     
@@ -810,6 +830,22 @@ public class Interface extends javax.swing.JFrame {
     
     public void setSystem(Sistema system) {
         this.system = system;
+    }
+    
+    public void setjListADM(){
+        String[] lista = system.getServicosInvalidos();
+        jList1.setListData(lista);
+    }
+    
+    public void setjComboBoxFunc(){
+        servicosValidos.removeAllItems();
+        ArrayList<String> naoOrcamentados = system.getValidosNaoOrcamentados();
+        Iterator it = naoOrcamentados.iterator();
+        String servicos;
+        while(it.hasNext()){
+            servicos = (String)it.next();
+            servicosValidos.addItem(servicos);
+        }
     }
     
 
@@ -868,6 +904,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JDialog telaFuncionario;
     private javax.swing.JDialog telaLogin;
     private javax.swing.JDialog telaOrcamentos;
+    private javax.swing.JDialog telaPedidos;
     private javax.swing.JTextField telefoneCadastrar;
     private javax.swing.JComboBox<String> tipoCadastrar;
     private javax.swing.JTextField usuarioCadastrar;
