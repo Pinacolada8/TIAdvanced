@@ -59,7 +59,9 @@ public class FIleIO {
         }
         
         while (input.hasNextLine()){
-            line = input.nextLine();
+            line = input.nextLine();            
+            line = line.replace(";","");
+            
             String[] parametro = line.split(":");  
             
             if (parametro.length == 7){
@@ -92,6 +94,36 @@ public class FIleIO {
     
     
     private void readServices(){
+        Scanner input;
+        Scanner campo;
+        String parametros[];
+        int i;
+        try {
+            services.createNewFile();
+            input = new Scanner(services);
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null,"ERRO AO LER USUARIOS","ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null,"ERRO AO LER USUARIOS","ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        input.useDelimiter("\\{\n");
+        
+        while(input.hasNext()){
+            campo = new Scanner(input.next());
+            while (campo.hasNextLine()){
+                System.out.println("LINE:");
+                parametros = campo.nextLine().replace(";|}","").replace("}", "").split(":");
+                for(i=0;i<parametros.length;i++){
+                    System.out.print(i+"->");
+                    System.out.println(parametros[i]);                    
+                }                
+            }
+            System.out.println("ENDCAMPO");            
+        }
+        
         
     }
 }
