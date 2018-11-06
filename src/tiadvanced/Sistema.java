@@ -192,7 +192,9 @@ public class Sistema{
         buscarServico(nomeServico).deletaOrcamento(usuarioLogado);
     }
     
-    public void alterarOrcamento(String nomeServico, double novoPreco){
+    public void alterarOrcamento(String nomeServico){
+        double novoPreco;
+        novoPreco = Double.parseDouble(JOptionPane.showInputDialog(null, "Novo valor para " + nomeServico, "Alterar Valor", JOptionPane.QUESTION_MESSAGE));
         buscarServico(nomeServico).alteraOrcamento(usuarioLogado, novoPreco);
     }
     
@@ -252,6 +254,26 @@ public class Sistema{
             orcamentado = false;
         }
         return naoOrcamentados;
+    }
+    
+    public String[] getOrcamentosFunc(){
+        ArrayList<String> parcial = new ArrayList();
+        String[] retorno;
+        Iterator it = Servicos.iterator();
+        Servicos busca;
+        while(it.hasNext()){//Itera pelos Servicos
+            busca = (Servicos)it.next();
+            Iterator it2 = busca.getOrcamentos().iterator();
+            while(it2.hasNext()){//Itera pelos Orcamentos de cada servico em busca de orcamentos do usuario logado.
+                Orcamento procura = (Orcamento)it2.next();
+                if(procura.getNomeFuncionario().equals(usuarioLogado)){
+                    String array = busca.getNomeServico() + "-R$:" + procura.getPreco();
+                    parcial.add(array);
+                }
+            }
+        }
+        retorno = parcial.toArray(new String[1]);
+        return retorno;
     }
 
     public Map<String, Pessoas> getDatabase() {

@@ -87,10 +87,18 @@ public class Interface extends javax.swing.JFrame {
         deslogarCli = new javax.swing.JButton();
         telaOrcamentos = new javax.swing.JDialog();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jList5 = new javax.swing.JList<>();
-        jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
+        orcamentos = new javax.swing.JList<>();
+        alteraOrc = new javax.swing.JButton();
+        deletaOrc = new javax.swing.JButton();
         telaPedidos = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        verificarOrc = new javax.swing.JButton();
+        telaPedir = new javax.swing.JDialog();
+        telaOrcPedir = new javax.swing.JDialog();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList3 = new javax.swing.JList<>();
+        efetuarPedido = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         promocao = new javax.swing.JTextField();
@@ -336,6 +344,11 @@ public class Interface extends javax.swing.JFrame {
         nomeServicoFunc.setText("Nome do Serviço");
 
         verificarPedidosFunc1.setText("Verificar Orçamentos");
+        verificarPedidosFunc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verificarPedidosFunc1ActionPerformed(evt);
+            }
+        });
 
         deslogarFunc.setText("Deslogar");
         deslogarFunc.addActionListener(new java.awt.event.ActionListener() {
@@ -369,8 +382,7 @@ public class Interface extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(servicosValidos, 0, 162, Short.MAX_VALUE))
                             .addGroup(telaFuncionarioLayout.createSequentialGroup()
-                                .addComponent(verificarPedidosFunc1)
-                                .addGap(18, 18, 18)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(telaFuncionarioLayout.createSequentialGroup()
                                         .addComponent(jLabel17)
@@ -383,31 +395,31 @@ public class Interface extends javax.swing.JFrame {
                         .addGap(121, 121, 121)
                         .addComponent(verificarPedidosFunc)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telaFuncionarioLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(verificarPedidosFunc1)
+                .addGap(170, 170, 170))
         );
         telaFuncionarioLayout.setVerticalGroup(
             telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(telaFuncionarioLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(nomeServicoFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16)
+                    .addComponent(servicosValidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(telaFuncionarioLayout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(nomeServicoFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16)
-                            .addComponent(servicosValidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cadastroServicoFunc)
-                            .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(valorServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel17)))
-                        .addGap(10, 10, 10)
-                        .addComponent(verificarPedidosFunc1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telaFuncionarioLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(AtribuirValor)
-                        .addGap(18, 18, 18)))
+                    .addComponent(cadastroServicoFunc)
+                    .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(valorServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel17)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AtribuirValor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(verificarPedidosFunc1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(telaFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(verificarPedidosFunc)
                     .addComponent(deslogarFunc))
@@ -489,28 +501,38 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jList5.setModel(new javax.swing.AbstractListModel<String>() {
+        orcamentos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane5.setViewportView(jList5);
+        jScrollPane5.setViewportView(orcamentos);
 
-        jButton19.setText("Alterar Orcamento");
+        alteraOrc.setText("Alterar Orcamento");
+        alteraOrc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alteraOrcActionPerformed(evt);
+            }
+        });
 
-        jButton20.setText("Deletar Orcamento");
+        deletaOrc.setText("Deletar Orcamento");
+        deletaOrc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletaOrcActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout telaOrcamentosLayout = new javax.swing.GroupLayout(telaOrcamentos.getContentPane());
         telaOrcamentos.getContentPane().setLayout(telaOrcamentosLayout);
         telaOrcamentosLayout.setHorizontalGroup(
             telaOrcamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(telaOrcamentosLayout.createSequentialGroup()
-                .addContainerGap(113, Short.MAX_VALUE)
-                .addGroup(telaOrcamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButton20)
-                    .addComponent(jButton19)
+                .addGap(53, 53, 53)
+                .addGroup(telaOrcamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(deletaOrc)
+                    .addComponent(alteraOrc)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(107, 107, 107))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         telaOrcamentosLayout.setVerticalGroup(
             telaOrcamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -518,21 +540,91 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton19)
+                .addComponent(alteraOrc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton20)
+                .addComponent(deletaOrc)
                 .addContainerGap(33, Short.MAX_VALUE))
         );
+
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList2);
+
+        verificarOrc.setText("Verificar Orcamentos deste Serviço");
+        verificarOrc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verificarOrcActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout telaPedidosLayout = new javax.swing.GroupLayout(telaPedidos.getContentPane());
         telaPedidos.getContentPane().setLayout(telaPedidosLayout);
         telaPedidosLayout.setHorizontalGroup(
             telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(telaPedidosLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(verificarOrc)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         telaPedidosLayout.setVerticalGroup(
             telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(telaPedidosLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(verificarOrc)
+                .addContainerGap(66, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout telaPedirLayout = new javax.swing.GroupLayout(telaPedir.getContentPane());
+        telaPedir.getContentPane().setLayout(telaPedirLayout);
+        telaPedirLayout.setHorizontalGroup(
+            telaPedirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        telaPedirLayout.setVerticalGroup(
+            telaPedirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        jList3.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(jList3);
+
+        efetuarPedido.setText("Efetuar Pedido");
+        efetuarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                efetuarPedidoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout telaOrcPedirLayout = new javax.swing.GroupLayout(telaOrcPedir.getContentPane());
+        telaOrcPedir.getContentPane().setLayout(telaOrcPedirLayout);
+        telaOrcPedirLayout.setHorizontalGroup(
+            telaOrcPedirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(telaOrcPedirLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addGroup(telaOrcPedirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(efetuarPedido)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(82, Short.MAX_VALUE))
+        );
+        telaOrcPedirLayout.setVerticalGroup(
+            telaOrcPedirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(telaOrcPedirLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(efetuarPedido)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -822,6 +914,31 @@ public class Interface extends javax.swing.JFrame {
         system.modificarServico(jList1.getSelectedValuesList());
         setjListADM();
     }//GEN-LAST:event_alterarActionPerformed
+
+    private void verificarPedidosFunc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarPedidosFunc1ActionPerformed
+        telaOrcamentos.setVisible(true);
+        setjListOrc();
+    }//GEN-LAST:event_verificarPedidosFunc1ActionPerformed
+
+    private void alteraOrcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alteraOrcActionPerformed
+        String[] parametros = orcamentos.getSelectedValue().split("-");
+        system.alterarOrcamento(parametros[0]);
+        setjListOrc();
+    }//GEN-LAST:event_alteraOrcActionPerformed
+
+    private void deletaOrcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletaOrcActionPerformed
+        String[] parametros = orcamentos.getSelectedValue().split("-");
+        system.deletarOrcamento(parametros[0]);
+        setjListOrc();
+    }//GEN-LAST:event_deletaOrcActionPerformed
+
+    private void verificarOrcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarOrcActionPerformed
+        telaOrcPedir.setVisible(true);
+    }//GEN-LAST:event_verificarOrcActionPerformed
+
+    private void efetuarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_efetuarPedidoActionPerformed
+        telaOrcPedir.dispose();
+    }//GEN-LAST:event_efetuarPedidoActionPerformed
     
     
     public void inicio(){
@@ -835,6 +952,11 @@ public class Interface extends javax.swing.JFrame {
     public void setjListADM(){
         String[] lista = system.getServicosInvalidos();
         jList1.setListData(lista);
+    }
+    
+    public void setjListOrc(){
+        String[] lista = system.getOrcamentosFunc();
+        orcamentos.setListData(lista);
     }
     
     public void setjComboBoxFunc(){
@@ -852,6 +974,7 @@ public class Interface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AtribuirValor;
     private javax.swing.JButton BotaoCadastrar;
+    private javax.swing.JButton alteraOrc;
     private javax.swing.JButton alterar;
     private javax.swing.JButton botaoCadastro;
     private javax.swing.JButton botaoLogin;
@@ -859,14 +982,14 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton cadastroServico2;
     private javax.swing.JButton cadastroServicoADM;
     private javax.swing.JButton cadastroServicoFunc;
+    private javax.swing.JButton deletaOrc;
     private javax.swing.JButton deletar;
     private javax.swing.JButton deslogarADM;
     private javax.swing.JButton deslogarCli;
     private javax.swing.JButton deslogarFunc;
+    private javax.swing.JButton efetuarPedido;
     private javax.swing.JTextField emailCadastrar;
     private javax.swing.JTextField enderecoCadastrar;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton20;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -886,13 +1009,17 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList5;
+    private javax.swing.JList<String> jList2;
+    private javax.swing.JList<String> jList3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField nomeCadastrar;
     private javax.swing.JTextField nomeServicoADM;
     private javax.swing.JTextField nomeServicoCli;
     private javax.swing.JTextField nomeServicoFunc;
+    private javax.swing.JList<String> orcamentos;
     private javax.swing.JPasswordField passwordCadastrar;
     private javax.swing.JPasswordField passwordLogin;
     private javax.swing.JTextField promocao;
@@ -903,8 +1030,10 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JDialog telaCliente;
     private javax.swing.JDialog telaFuncionario;
     private javax.swing.JDialog telaLogin;
+    private javax.swing.JDialog telaOrcPedir;
     private javax.swing.JDialog telaOrcamentos;
     private javax.swing.JDialog telaPedidos;
+    private javax.swing.JDialog telaPedir;
     private javax.swing.JTextField telefoneCadastrar;
     private javax.swing.JComboBox<String> tipoCadastrar;
     private javax.swing.JTextField usuarioCadastrar;
@@ -912,6 +1041,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton validar;
     private javax.swing.JTextField valorServico;
     private javax.swing.JButton verificaPedido2;
+    private javax.swing.JButton verificarOrc;
     private javax.swing.JButton verificarPedidosFunc;
     private javax.swing.JButton verificarPedidosFunc1;
     // End of variables declaration//GEN-END:variables
