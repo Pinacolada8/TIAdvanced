@@ -275,6 +275,27 @@ public class Sistema{
         retorno = parcial.toArray(new String[1]);
         return retorno;
     }
+    
+    public Servicos[] getValidosOrcamentados(){
+        ArrayList<Servicos> servicos = new ArrayList();
+        Servicos[] retorno;
+        Iterator it = Servicos.iterator();
+        Servicos busca;
+        while(it.hasNext()){
+            busca = (Servicos)it.next();
+            if(busca.getOrcamentos().size() > 0){
+                servicos.add(busca);
+            }
+        }
+        retorno = servicos.toArray(new Servicos[1]);
+        return retorno;
+    }
+    
+    
+    public void realizarPedido(String comprador, String funcionario, String servico, double valor){
+        Pedidos pedido = new Pedidos(comprador, funcionario, servico, valor);
+        ((Clientes)Database.get(comprador)).novoPedido(pedido);       
+    }
 
     public Map<String, Pessoas> getDatabase() {
         return Database;
