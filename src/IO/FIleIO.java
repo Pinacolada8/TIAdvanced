@@ -97,33 +97,40 @@ public class FIleIO {
         Scanner input;
         Scanner campo;
         String parametros[];
+        String nomeServicoAtual = "";
         int i;
         try {
             services.createNewFile();
             input = new Scanner(services);
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null,"ERRO AO LER USUARIOS","ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERRO AO LER SERVICOS","ERRO", JOptionPane.ERROR_MESSAGE);
             return;
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null,"ERRO AO LER USUARIOS","ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERRO AO LER SERVICOS","ERRO", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
-        input.useDelimiter("\\{\n");
+        input.useDelimiter("\\{\n|\\}\n");
         
-        while(input.hasNext()){
+        while(input.hasNext()){ 
             campo = new Scanner(input.next());
-            while (campo.hasNextLine()){
-                System.out.println("LINE:");
-                parametros = campo.nextLine().replace(";|}","").replace("}", "").split(":");
-                for(i=0;i<parametros.length;i++){
-                    System.out.print(i+"->");
-                    System.out.println(parametros[i]);                    
-                }                
-            }
-            System.out.println("ENDCAMPO");            
+            while (campo.hasNextLine()){                
+                parametros = campo.nextLine().replace(";","").replace("\t", "").split(":");
+                if (parametros[0].equals("}")) break;
+                if (parametros[0].equals("N")) nomeServicoAtual = parametros[1];
+                servicesParameters(parametros,nomeServicoAtual);
+            }                    
         }
         
         
+    }
+    
+    private void servicesParameters (String[] parametros,String nomeServico){
+        int i;
+        for (i=0;i<parametros.length;i++){
+            switch (parametros[i]){
+                
+            }
+        }
     }
 }
