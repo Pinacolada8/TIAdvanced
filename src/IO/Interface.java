@@ -92,12 +92,12 @@ public class Interface extends javax.swing.JFrame {
         deletaOrc = new javax.swing.JButton();
         telaPedidos = new javax.swing.JDialog();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        jListServicos = new javax.swing.JList<>();
         verificarOrc = new javax.swing.JButton();
         telaPedir = new javax.swing.JDialog();
         telaOrcPedir = new javax.swing.JDialog();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<>();
+        jListEfetuar = new javax.swing.JList<>();
         efetuarPedido = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -456,6 +456,11 @@ public class Interface extends javax.swing.JFrame {
         jLabel18.setText("Serviço:");
 
         realizarPedido.setText("Realizar Pedido");
+        realizarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                realizarPedidoActionPerformed(evt);
+            }
+        });
 
         deslogarCli.setText("Deslogar");
         deslogarCli.addActionListener(new java.awt.event.ActionListener() {
@@ -546,12 +551,12 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        jListServicos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList2);
+        jScrollPane2.setViewportView(jListServicos);
 
         verificarOrc.setText("Verificar Orcamentos deste Serviço");
         verificarOrc.addActionListener(new java.awt.event.ActionListener() {
@@ -578,26 +583,26 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(verificarOrc)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout telaPedirLayout = new javax.swing.GroupLayout(telaPedir.getContentPane());
         telaPedir.getContentPane().setLayout(telaPedirLayout);
         telaPedirLayout.setHorizontalGroup(
             telaPedirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 240, Short.MAX_VALUE)
         );
         telaPedirLayout.setVerticalGroup(
             telaPedirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        jList3.setModel(new javax.swing.AbstractListModel<String>() {
+        jListEfetuar.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3.setViewportView(jList3);
+        jScrollPane3.setViewportView(jListEfetuar);
 
         efetuarPedido.setText("Efetuar Pedido");
         efetuarPedido.addActionListener(new java.awt.event.ActionListener() {
@@ -933,12 +938,19 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_deletaOrcActionPerformed
 
     private void verificarOrcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarOrcActionPerformed
+        setjListEfetuar();
         telaOrcPedir.setVisible(true);
     }//GEN-LAST:event_verificarOrcActionPerformed
 
     private void efetuarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_efetuarPedidoActionPerformed
+        system.realizarPedido("teste", "teste", "teste", 10);
         telaOrcPedir.dispose();
     }//GEN-LAST:event_efetuarPedidoActionPerformed
+
+    private void realizarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarPedidoActionPerformed
+        
+        telaPedidos.setVisible(true);
+    }//GEN-LAST:event_realizarPedidoActionPerformed
     
     
     public void inicio(){
@@ -957,6 +969,20 @@ public class Interface extends javax.swing.JFrame {
     public void setjListOrc(){
         String[] lista = system.getOrcamentosFunc();
         orcamentos.setListData(lista);
+    }
+    
+    public void setjListServicos(){
+        Servicos[] pedidos = system.getValidosOrcamentados();
+        //jListServicos.setListData(pedidos);
+    }
+    
+    public void setjListOrcPedidos(Servicos escolhido){
+        //Adicionar os objs a setjlistorc pedidos
+    }
+    
+    public void setjListEfetuar(){
+        String [] lista = new String[3];//Corrigir
+        jListEfetuar.setListData(lista);
     }
     
     public void setjComboBoxFunc(){
@@ -1009,8 +1035,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JList<String> jList3;
+    private javax.swing.JList<String> jListEfetuar;
+    private javax.swing.JList<String> jListServicos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
