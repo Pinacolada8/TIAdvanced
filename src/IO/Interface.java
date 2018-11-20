@@ -90,11 +90,18 @@ public class Interface extends javax.swing.JFrame {
         orcamentos = new javax.swing.JList<>();
         alteraOrc = new javax.swing.JButton();
         deletaOrc = new javax.swing.JButton();
-        telaPedidos = new javax.swing.JDialog();
+        telaPedir = new javax.swing.JDialog();
         jScrollPane2 = new javax.swing.JScrollPane();
         jListServicos = new javax.swing.JList<>();
         verificarOrc = new javax.swing.JButton();
-        telaPedir = new javax.swing.JDialog();
+        telaPedidos = new javax.swing.JDialog();
+        executarServico = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        listaServicos = new javax.swing.JList<>();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        listaEstadosServicos = new javax.swing.JList<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         telaOrcPedir = new javax.swing.JDialog();
         jScrollPane3 = new javax.swing.JScrollPane();
         jListEfetuar = new javax.swing.JList<>();
@@ -340,6 +347,11 @@ public class Interface extends javax.swing.JFrame {
         });
 
         verificarPedidosFunc.setText("Verificar Pedidos");
+        verificarPedidosFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verificarPedidosFuncActionPerformed(evt);
+            }
+        });
 
         nomeServicoFunc.setText("Nome do Serviço");
 
@@ -565,20 +577,20 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout telaPedidosLayout = new javax.swing.GroupLayout(telaPedidos.getContentPane());
-        telaPedidos.getContentPane().setLayout(telaPedidosLayout);
-        telaPedidosLayout.setHorizontalGroup(
-            telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(telaPedidosLayout.createSequentialGroup()
+        javax.swing.GroupLayout telaPedirLayout = new javax.swing.GroupLayout(telaPedir.getContentPane());
+        telaPedir.getContentPane().setLayout(telaPedirLayout);
+        telaPedirLayout.setHorizontalGroup(
+            telaPedirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(telaPedirLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(telaPedirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(verificarOrc)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
-        telaPedidosLayout.setVerticalGroup(
-            telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(telaPedidosLayout.createSequentialGroup()
+        telaPedirLayout.setVerticalGroup(
+            telaPedirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(telaPedirLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -586,15 +598,63 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout telaPedirLayout = new javax.swing.GroupLayout(telaPedir.getContentPane());
-        telaPedir.getContentPane().setLayout(telaPedirLayout);
-        telaPedirLayout.setHorizontalGroup(
-            telaPedirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 240, Short.MAX_VALUE)
+        executarServico.setText("Executar Servico");
+        executarServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                executarServicoActionPerformed(evt);
+            }
+        });
+
+        listaServicos.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane4.setViewportView(listaServicos);
+
+        listaEstadosServicos.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane6.setViewportView(listaEstadosServicos);
+
+        jLabel1.setText("Serviço");
+
+        jLabel3.setText("Estado");
+
+        javax.swing.GroupLayout telaPedidosLayout = new javax.swing.GroupLayout(telaPedidos.getContentPane());
+        telaPedidos.getContentPane().setLayout(telaPedidosLayout);
+        telaPedidosLayout.setHorizontalGroup(
+            telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(telaPedidosLayout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addGroup(telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(executarServico)
+                    .addGroup(telaPedidosLayout.createSequentialGroup()
+                        .addGroup(telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(58, 58, 58)
+                        .addGroup(telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
-        telaPedirLayout.setVerticalGroup(
-            telaPedirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        telaPedidosLayout.setVerticalGroup(
+            telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telaPedidosLayout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addGroup(telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(telaPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(executarServico)
+                .addGap(37, 37, 37))
         );
 
         jListEfetuar.setModel(new javax.swing.AbstractListModel<String>() {
@@ -849,7 +909,9 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroServicoFuncActionPerformed
 
     private void verificaPedido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificaPedido2ActionPerformed
-        // TODO add your handling code here:
+        executarServico.enable(false);
+        setjListsVerificacao(0);
+        telaPedidos.setVisible(true);
     }//GEN-LAST:event_verificaPedido2ActionPerformed
 
     private void cadastroServico2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroServico2ActionPerformed
@@ -945,12 +1007,24 @@ public class Interface extends javax.swing.JFrame {
     private void efetuarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_efetuarPedidoActionPerformed
         system.realizarPedido("teste", "teste", "teste", 10);
         telaOrcPedir.dispose();
+        telaPedir.dispose();
     }//GEN-LAST:event_efetuarPedidoActionPerformed
 
     private void realizarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarPedidoActionPerformed
-        
-        telaPedidos.setVisible(true);
+        setjListServicos();
+        telaPedir.setVisible(true);
     }//GEN-LAST:event_realizarPedidoActionPerformed
+
+    private void verificarPedidosFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarPedidosFuncActionPerformed
+        executarServico.enable(true);
+        setjListsVerificacao(1);
+        telaPedidos.setVisible(true);
+    }//GEN-LAST:event_verificarPedidosFuncActionPerformed
+
+    private void executarServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executarServicoActionPerformed
+        system.executarServico(listaServicos.getSelectedValue());
+        setjListsVerificacao(1);
+    }//GEN-LAST:event_executarServicoActionPerformed
     
     
     public void inicio(){
@@ -974,6 +1048,23 @@ public class Interface extends javax.swing.JFrame {
     public void setjListServicos(){
         Servicos[] pedidos = system.getValidosOrcamentados();
         //jListServicos.setListData(pedidos);
+    }
+   
+    public void setjListsVerificacao(int ID){
+        if(ID == 0){//Cliente
+            Pedidos [] pedidos = system.getPedidosCliente();
+            for(int i = 0; i < pedidos.length; i++){
+               ((DefaultListModel)listaServicos.getModel()).addElement();
+                pedidos[i] 
+            }
+            //listaServicos.setListData(listData); Corrigir
+            //listaEstadosServicos.setlistData();
+        }
+        else{//funcionario
+            system.getPedidosFuncionario();
+            //listaServicos.setListData();
+            //listaEstadosServicos.setlistData();
+        }
     }
     
     public void setjListOrcPedidos(Servicos escolhido){
@@ -1016,6 +1107,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton efetuarPedido;
     private javax.swing.JTextField emailCadastrar;
     private javax.swing.JTextField enderecoCadastrar;
+    private javax.swing.JButton executarServico;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -1030,6 +1123,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
@@ -1040,7 +1134,11 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JList<String> listaEstadosServicos;
+    private javax.swing.JList<String> listaServicos;
     private javax.swing.JTextField nomeCadastrar;
     private javax.swing.JTextField nomeServicoADM;
     private javax.swing.JTextField nomeServicoCli;

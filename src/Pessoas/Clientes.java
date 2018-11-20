@@ -11,8 +11,18 @@ public class Clientes extends Pessoas{
         pedidos = new ArrayList();
     }
     
-    public void novoPedido(){
+    public void novoPedido(Pedidos pedido){
         
     }
+
+    public ArrayList<Pedidos> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(ArrayList<Pedidos> pedidos) {
+        this.pedidos = pedidos;
+    }
+    
+    
        
 }

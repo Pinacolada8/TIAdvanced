@@ -296,6 +296,19 @@ public class Sistema{
         Pedidos pedido = new Pedidos(comprador, funcionario, servico, valor);
         ((Clientes)Database.get(comprador)).novoPedido(pedido);       
     }
+    
+    public void executarServico(String nomeServico){
+        buscarServico(nomeServico).setAtivo(true);
+    }
+    
+    public Pedidos[] getPedidosCliente(){
+        Pedidos[] pedidos = ((Clientes)Database.get(usuarioLogado)).getPedidos().toArray(new Pedidos[1]);
+        return pedidos;
+    }
+    
+    public Pedidos[] getPedidosFuncionario(){
+        
+    }
 
     public Map<String, Pessoas> getDatabase() {
         return Database;
