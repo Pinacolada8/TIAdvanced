@@ -53,4 +53,9 @@ public class Pedidos {
         return estado;
     }
     
+    @Override
+    public String toString(){
+        return Servico;
+    }
+    
 }

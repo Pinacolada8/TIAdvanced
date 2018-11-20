@@ -82,4 +82,8 @@ public class Servicos {
         }
     }
     
+    @Override
+    public String toString(){
+        return nomeServico;
+    }
 }
