@@ -50,11 +50,13 @@ public class Servicos {
         return null;
     }
     
-    public boolean novoOrcamento(String nome, double preco){
+    public boolean novoOrcamento(String nome, double preco, boolean quiet){
         if(buscaOrcamento(nome) == null){
             Orcamento novo = new Orcamento(nome, preco);
             orcamentos.add(novo);
-            JOptionPane.showMessageDialog(null,"ORCAMENTO PARA O PRODUTO CADASTRADO COM SUCESSO.","SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+            if (!quiet){
+                JOptionPane.showMessageDialog(null,"ORCAMENTO PARA O PRODUTO CADASTRADO COM SUCESSO.","SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+            }            
             return true;
         }
         else{

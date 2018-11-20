@@ -183,7 +183,7 @@ public class Sistema{
     
     public void precificarServico(String nome, double preco){
         if(buscarServico(nome) != null){
-            buscarServico(nome).novoOrcamento(usuarioLogado, preco);
+            buscarServico(nome).novoOrcamento(usuarioLogado, preco, false);
         } 
     }
     
@@ -288,8 +288,7 @@ public class Sistema{
         }
         retorno = servicos.toArray(new Servicos[1]);
         return retorno;
-    }
-    
+    }    
     
     public void realizarPedido(String funcionario, String servico, double valor){
         Pedidos pedido = new Pedidos(usuarioLogado, funcionario, servico, valor);
@@ -343,5 +342,18 @@ public class Sistema{
         return data;
     }
     
-   
+    public ArrayList<Clientes> getClientes(){
+        ArrayList<Clientes> Clientes = new ArrayList<Clientes>();
+        Iterator<Pessoas> it = Database.values().iterator();
+        Pessoas aux;
+        
+        while (it.hasNext()){
+            aux = it.next();
+            if (aux instanceof Clientes){
+                Clientes.add((Clientes)aux);
+            }
+        }
+        
+        return Clientes;
+    }
 }

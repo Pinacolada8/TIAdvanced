@@ -12,16 +12,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import tiadvanced.Orcamento;
+import tiadvanced.Pedidos;
 import tiadvanced.Servicos;
 import tiadvanced.Sistema;
 
 public class FIleIO {
     private File usersFile;
     private File servicesFile;
-    private File ordersFile;
     private static final String CURRENTFOLDER = "Files/";
     private Sistema system;
-    private static String servicoAtual = "";
+    private static Servicos servicoAtual = null;
 
     public FIleIO(Sistema system) {  
         File filesFolder = new File(CURRENTFOLDER);
@@ -34,20 +34,21 @@ public class FIleIO {
         
         this.usersFile = new File(CURRENTFOLDER + "users.adv");
         
-        this.servicesFile = new File(CURRENTFOLDER + "services.adv");
-        
-        this.ordersFile = new File(CURRENTFOLDER + "orders.adv");       
-        
+        this.servicesFile = new File(CURRENTFOLDER + "services.adv");       
+           
         this.system = system;
         
     }
     
     public void load(){
         readUsers();
+        readServices();
     }
     
     public void save(){
         writeUsers();
+        writeServices();
+        writeOrders();
         System.out.println("ARQUIVOS SALVOS");
     }
     
@@ -74,6 +75,9 @@ public class FIleIO {
             
             if (parametro.length == 7){
                 system.Cadastro(parametro[0], parametro[1], parametro[2], parametro[3], parametro[4], parametro[5], parametro[6], true);
+                if (parametro[6].equals("Cliente")){
+                    readOrders(parametro[4]);//Le as Ordens deste Cliente
+                }
             }       
 
         }
@@ -132,18 +136,17 @@ public class FIleIO {
         
     }
     
-    private void servicesParameters (String[] parametros){
-        int i;
-        
-        if (parametros[0].equals("N")) {
-            servicoAtual = parametros[1];            
-            return;
-        } 
-        
-        for (i=0;i<parametros.length;i++){
-            switch (parametros[i]){
-                
-            }
+    private void servicesParameters (String[] parametros){            
+        switch (parametros[0]){                
+            case "N":
+                servicoAtual = new Servicos(parametros[1],Boolean.parseBoolean(parametros[2]));   
+                system.getServicos().add(servicoAtual);                
+                break;
+            case "Price":
+                servicoAtual.novoOrcamento(parametros[1],Double.parseDouble(parametros[2]), true);
+                break;
+            default:
+                break;
         }
     }
     
@@ -168,10 +171,10 @@ public class FIleIO {
         while (it.hasNext()){
             servico = it.next();
             itOrcamentos = servico.getOrcamentos().iterator();
-            saver.format("\t%s:%b{",servico.getNomeServico(),servico.isAtivo());
+            saver.format("\tN:%s:%b{",servico.getNomeServico(),servico.isAtivo());
             while (itOrcamentos.hasNext()){
                 orcamento = itOrcamentos.next();
-                saver.format("\nPrice:%s:%f",orcamento.getNomeFuncionario(),orcamento.getPreco());
+                saver.format("\nPrice:%s:%s",orcamento.getNomeFuncionario(),orcamento.getPreco());
             }
             saver.format("\n}");
         }
@@ -179,8 +182,11 @@ public class FIleIO {
         saver.close();    
     }
     
-    private void readOrders(){
+    private void readOrders(String ClientUsername){
+        File ordersFile = new File(CURRENTFOLDER + ClientUsername +".advClient");
         Scanner input;
+        String parametros[];
+        Pedidos aux;
         try {
             ordersFile.createNewFile();
             input = new Scanner(ordersFile);
@@ -191,10 +197,22 @@ public class FIleIO {
             JOptionPane.showMessageDialog(null,"ERRO AO LER OS PEDIDOS","ERRO", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
+        while (input.hasNextLine()){
+            parametros = input.nextLine().split(":");
+            aux = new Pedidos(parametros[0],parametros[1],parametros[2],Double.parseDouble(parametros[3]));
+            aux.setEstado(Boolean.parseBoolean(parametros[4]));
+            ((Clientes)system.getDatabase().get(ClientUsername)).novoPedido(aux);            
+        }
     }
     
-    private void writeOrders(){
+    
+    
+    private void writeOrder(Clientes cliente){
         Formatter saver;
+        File ordersFile = new File(CURRENTFOLDER + cliente.getUsuario() +".advClient");
+        Iterator<Pedidos> it = cliente.getPedidos().iterator();
+        Pedidos aux;
         try {        
             ordersFile.createNewFile();
             saver = new Formatter(ordersFile);
@@ -204,6 +222,22 @@ public class FIleIO {
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR PEDIDOS","ERRO", JOptionPane.ERROR_MESSAGE);
             return;
+        }
+        
+        while (it.hasNext()){
+            aux = it.next();
+            saver.format("%s:%s:%s:%s:%s\n", aux.getComprador(),aux.getFuncionario(),aux.getServico(),aux.getValor(),aux.getEstado());
+        }
+        
+        saver.flush();
+        saver.close(); 
+    }
+    
+    private void writeOrders(){
+        Iterator<Clientes> it = system.getClientes().iterator();
+        
+        while (it.hasNext()){
+            writeOrder(it.next());
         }
     }
     
