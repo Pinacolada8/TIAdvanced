@@ -24,4 +24,9 @@ public class Orcamento {
     public void setPreco(double preco) {
         this.preco = preco;
     }
+
+    @Override
+    public String toString(){
+        return nomeFuncionario + " - " + preco;
+    }
 }

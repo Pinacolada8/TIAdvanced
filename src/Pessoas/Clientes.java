@@ -12,7 +12,7 @@ public class Clientes extends Pessoas{
     }
     
     public void novoPedido(Pedidos pedido){
-        
+        pedidos.add(pedido);
     }
 
     public ArrayList<Pedidos> getPedidos() {

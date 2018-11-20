@@ -1,6 +1,5 @@
 package tiadvanced;
 import Pessoas.*;
-import tiadvanced.*;
 import IO.*;
 import java.util.Iterator;
 import java.util.HashMap;
@@ -131,7 +130,7 @@ public class Sistema{
     public void cadastrarServico(String nome){
         Servicos novo = new Servicos(nome, false);
         Servicos.add(novo);
-        JOptionPane.showMessageDialog(null,"SERVICO CADASTRADO COM SUCESSO.","SUCESSO", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null,"SERVICO CADASTRADO COM SUCESSO.","SUCESSO", JOptionPane.INFORMATION_MESSAGE);
     }
     
     public Servicos buscarServico(String nome){
@@ -292,9 +291,9 @@ public class Sistema{
     }
     
     
-    public void realizarPedido(String comprador, String funcionario, String servico, double valor){
-        Pedidos pedido = new Pedidos(comprador, funcionario, servico, valor);
-        ((Clientes)Database.get(comprador)).novoPedido(pedido);       
+    public void realizarPedido(String funcionario, String servico, double valor){
+        Pedidos pedido = new Pedidos(usuarioLogado, funcionario, servico, valor);
+        ((Clientes)Database.get(usuarioLogado)).novoPedido(pedido);       
     }
     
     public void executarServico(String nomeServico){
@@ -307,7 +306,25 @@ public class Sistema{
     }
     
     public Pedidos[] getPedidosFuncionario(){
-        
+        ArrayList<Pedidos> pedidos = new ArrayList();
+        for (Pessoas pessoa : Database.values()) {
+            if(pessoa instanceof Clientes){
+                Pedidos pedido;
+                Iterator it = ((Clientes) pessoa).getPedidos().iterator();
+                while(it.hasNext()){
+                    pedido = (Pedidos)it.next();
+                    if(pedido.getFuncionario().equals(usuarioLogado) && pedido.getEstado() == false){
+                        pedidos.add(pedido);
+                    }
+                }
+            }
+        }
+        Pedidos[] pedidosRetorno = pedidos.toArray(new Pedidos[1]);
+        return pedidosRetorno;
+    }
+    
+    public Orcamento[] getOrcamentosServico(Servicos servico){
+        return servico.getOrcamentos().toArray(new Orcamento[1]);
     }
 
     public Map<String, Pessoas> getDatabase() {
