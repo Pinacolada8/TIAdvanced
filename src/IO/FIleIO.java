@@ -6,15 +6,21 @@ import java.util.Formatter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import tiadvanced.Orcamento;
+import tiadvanced.Servicos;
 import tiadvanced.Sistema;
 
 public class FIleIO {
-    private File users;
-    private File services;
+    private File usersFile;
+    private File servicesFile;
     private static final String CURRENTFOLDER = "Files/";
     private Sistema system;
+    private static String servicoAtual = "";
 
     public FIleIO(Sistema system) {  
         File filesFolder = new File(CURRENTFOLDER);
@@ -25,9 +31,9 @@ public class FIleIO {
             }
         }
         
-        this.users = new File(CURRENTFOLDER + "users.adv");
+        this.usersFile = new File(CURRENTFOLDER + "users.adv");
         
-        this.services = new File(CURRENTFOLDER + "services.adv");
+        this.servicesFile = new File(CURRENTFOLDER + "services.adv");
         
         
         this.system = system;
@@ -48,8 +54,8 @@ public class FIleIO {
         Scanner input;
         String line;
         try {
-            users.createNewFile();
-            input = new Scanner(users);
+            usersFile.createNewFile();
+            input = new Scanner(usersFile);
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null,"ERRO AO LER USUARIOS","ERRO", JOptionPane.ERROR_MESSAGE);
             return;
@@ -75,8 +81,12 @@ public class FIleIO {
         Formatter saver;
         Iterator it;
         try {        
-            saver = new Formatter(users);
+            saver = new Formatter(usersFile);
+            usersFile.createNewFile();
         } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR USUARIOS","ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        } catch (IOException ex) {
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR USUARIOS","ERRO", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -90,18 +100,15 @@ public class FIleIO {
         saver.flush();
         saver.close();          
     }    
- 
-    
     
     private void readServices(){
         Scanner input;
         Scanner campo;
-        String parametros[];
-        String nomeServicoAtual = "";
+        String parametros[];        
         int i;
         try {
-            services.createNewFile();
-            input = new Scanner(services);
+            servicesFile.createNewFile();
+            input = new Scanner(servicesFile);
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null,"ERRO AO LER SERVICOS","ERRO", JOptionPane.ERROR_MESSAGE);
             return;
@@ -116,21 +123,58 @@ public class FIleIO {
             campo = new Scanner(input.next());
             while (campo.hasNextLine()){                
                 parametros = campo.nextLine().replace(";","").replace("\t", "").split(":");
-                if (parametros[0].equals("}")) break;
-                if (parametros[0].equals("N")) nomeServicoAtual = parametros[1];
-                servicesParameters(parametros,nomeServicoAtual);
+                if (parametros[0].equals("}")) break;                
+                servicesParameters(parametros);
             }                    
-        }
-        
+        }       
         
     }
     
-    private void servicesParameters (String[] parametros,String nomeServico){
+    private void servicesParameters (String[] parametros){
         int i;
+        
+        if (parametros[0].equals("N")) {
+            servicoAtual = parametros[1];
+            system.s
+            return;
+        } 
+        
         for (i=0;i<parametros.length;i++){
             switch (parametros[i]){
                 
             }
         }
+    }
+    
+    private void writeServices(){ 
+        Servicos servico;
+        Orcamento orcamento;
+        Iterator<Servicos> it = system.getServicos().iterator();  
+        Iterator<Orcamento> itOrcamentos;
+        Formatter saver;
+        
+        try {        
+            servicesFile.createNewFile();
+            saver = new Formatter(servicesFile);
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR USUARIOS","ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR USUARIOS","ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        while (it.hasNext()){
+            servico = it.next();
+            itOrcamentos = servico.getOrcamentos().iterator();
+            saver.format("\t%s:%b{",servico.getNomeServico(),servico.isAtivo());
+            while (itOrcamentos.hasNext()){
+                orcamento = itOrcamentos.next();
+                saver.format("\nPrice:%s:%f",orcamento.getNomeFuncionario(),orcamento.getPreco());
+            }
+            saver.format("\n}");
+        }
+        saver.flush();
+        saver.close();    
     }
 }
