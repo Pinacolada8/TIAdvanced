@@ -18,6 +18,7 @@ import tiadvanced.Sistema;
 public class FIleIO {
     private File usersFile;
     private File servicesFile;
+    private File ordersFile;
     private static final String CURRENTFOLDER = "Files/";
     private Sistema system;
     private static String servicoAtual = "";
@@ -35,6 +36,7 @@ public class FIleIO {
         
         this.servicesFile = new File(CURRENTFOLDER + "services.adv");
         
+        this.ordersFile = new File(CURRENTFOLDER + "orders.adv");       
         
         this.system = system;
         
@@ -134,8 +136,7 @@ public class FIleIO {
         int i;
         
         if (parametros[0].equals("N")) {
-            servicoAtual = parametros[1];
-            system.s
+            servicoAtual = parametros[1];            
             return;
         } 
         
@@ -177,4 +178,33 @@ public class FIleIO {
         saver.flush();
         saver.close();    
     }
+    
+    private void readOrders(){
+        Scanner input;
+        try {
+            ordersFile.createNewFile();
+            input = new Scanner(ordersFile);
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null,"ERRO AO LER OS PEDIDOS","ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null,"ERRO AO LER OS PEDIDOS","ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    }
+    
+    private void writeOrders(){
+        Formatter saver;
+        try {        
+            ordersFile.createNewFile();
+            saver = new Formatter(ordersFile);
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR PEDIDOS","ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR PEDIDOS","ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    }
+    
 }
