@@ -2,3 +2,5 @@ Nome:Endereço:Telefone:Email:User:Password:Funcionario
 root:root:root:root:root:root:ADM
 teste2:ere:1234:wasfEmail:teste3:password:Funcionario
 Tuwtuw:Rua Teste:1234-5678:teste@teste.com:tuwtuw:886270:Cliente
+funcionario:funcionario:funcionario:funcionario:funcionario:funcionario:Funcionario
+Cliente:Cliente:Cliente:Cliente:Cliente:Cliente:Cliente

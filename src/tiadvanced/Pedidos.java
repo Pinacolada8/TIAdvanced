@@ -55,7 +55,7 @@ public class Pedidos {
     
     @Override
     public String toString(){
-        return Servico;
+        return Funcionario +"-"+Servico + "-" + Comprador;
     }
     
 }
