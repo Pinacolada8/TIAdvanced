@@ -123,12 +123,6 @@ public class Interface extends javax.swing.JFrame {
         nomeServicoADM = new javax.swing.JTextField();
         cadastroServicoADM = new javax.swing.JButton();
 
-        telaCadastro.addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                FecharTela(evt);
-            }
-        });
-
         jLabel19.setText("Nome:");
 
         telefoneCadastrar.setText("Telefone");
